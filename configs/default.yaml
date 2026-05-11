@@ -1,0 +1,41 @@
+# Default configuration for Bayesian Model Averaging experiments
+
+# Experiment settings
+experiment:
+  task: "classification"  # classification, regression, synthetic
+  dataset: "breast_cancer"  # dataset name (ignored for synthetic)
+  random_state: 42
+  test_size: 0.2
+  cv_folds: 5
+
+# BMA methods to use
+bma_methods:
+  - "cv"  # Cross-validation based
+  - "bic"  # Bayesian Information Criterion
+  - "laplace"  # Laplace approximation
+
+# Model settings
+models:
+  use_default: true
+  custom_models: []
+
+# Data settings
+data:
+  scale_features: true
+  synthetic:
+    n_samples: 1000
+    n_features: 20
+    noise_level: 0.1
+
+# Output settings
+output:
+  save_results: true
+  save_plots: true
+  output_dir: "assets/results"
+  plot_format: "png"
+  plot_dpi: 300
+
+# Logging settings
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
